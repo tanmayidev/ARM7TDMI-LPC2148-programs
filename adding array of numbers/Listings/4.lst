@@ -1,0 +1,63 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Program to find the  sum of an array of 16-bit numbers;
+                        store the 32-bit result in internal RAM.
+    2 00000000         ;Program to add array of 16-bit numbers
+    3 00000000                 AREA             ADDARRAY, CODE, READONLY
+    4 00000000                 ENTRY
+    5 00000000         
+    6 00000000 E3A05006        MOV              R5, #06     ;Counter initialize
+                                                             seven numbers
+    7 00000004 E3A00000        MOV              R0, #00
+    8 00000008 E3A06101        MOV              R6, #0x40000000
+    9 0000000C E1D610B0        LDRH             R1, [R6]    ;start address of d
+                                                            ata for 16-bit data
+                                                            ; LDRH means load h
+                                                            alf i.e., 16-bit da
+                                                            ta
+   10 00000010         
+   11 00000010 E2866004 
+                       LOOP    ADD              R6, R6, #04
+   12 00000014 E1D620B0        LDRH             R2, [R6]
+   13 00000018 E0811002        ADD              R1, R2
+   14 0000001C E2555001        SUBS             R5, R5, #01
+   15 00000020 E3550000        CMP              R5, #00     ; is R5==0 ?
+   16 00000024 1AFFFFF9        BNE              LOOP
+   17 00000028         
+   18 00000028 E3A04171        MOV              R4, #0x4000001C
+   19 0000002C E5841000        STR              R1, [R4]
+   20 00000030 EF000011        SWI              &11
+   21 00000034         
+   22 00000034                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\4.d -o.\objects\4.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Inc
+lude -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__UV
+ISION_VERSION SETA 529" --list=.\listings\4.lst 4.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ADDARRAY 00000000
+
+Symbol: ADDARRAY
+   Definitions
+      At line 3 in file 4.s
+   Uses
+      None
+Comment: ADDARRAY unused
+LOOP 00000010
+
+Symbol: LOOP
+   Definitions
+      At line 11 in file 4.s
+   Uses
+      At line 16 in file 4.s
+Comment: LOOP used once
+2 symbols
+334 symbols in table
