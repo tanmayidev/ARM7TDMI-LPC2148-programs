@@ -1,0 +1,3 @@
+Dependencies for Project '29-Reverse_subtraction', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
+F (.\29-Reverse_subtraction.s)(0x5E80AEEB)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 529"--list .\listings\29-reverse_subtraction.lst --xref -o .\objects\29-reverse_subtraction.o --depend .\objects\29-reverse_subtraction.d)

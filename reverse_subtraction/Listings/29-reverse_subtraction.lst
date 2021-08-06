@@ -1,0 +1,48 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; Program to verify reverse substraction
+    2 00000000         
+    3 00000000                 AREA             REVSUB, CODE, READONLY
+    4 00000000         ENTRY
+    5 00000000 E3A00000        MOV              R0, #0x00000000 ; 0000 0000 000
+                                                            0 0000 0000 0000 00
+                                                            00 0000
+    6 00000004 E3A01077        MOV              R1, #0x00000077 ; 0000 0000 000
+                                                            0 0000 0000 0000 01
+                                                            11 0111
+    7 00000008 E2610000        RSB              R0, R1, #0  ; R0 = 0x0 - R1
+    8 0000000C         ; Result is ffffff88
+    9 0000000C                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\29-reverse_subtraction.d -o.\objects\29-reverse_subtraction.o -IC:\Keil_
+v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --p
+redefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 529" --list=.\list
+ings\29-reverse_subtraction.lst 29-Reverse_subtraction.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 4 in file 29-Reverse_subtraction.s
+   Uses
+      None
+Comment: ENTRY unused
+REVSUB 00000000
+
+Symbol: REVSUB
+   Definitions
+      At line 3 in file 29-Reverse_subtraction.s
+   Uses
+      None
+Comment: REVSUB unused
+2 symbols
+334 symbols in table
