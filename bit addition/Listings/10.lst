@@ -1,0 +1,77 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;TWO_32_BIT_ADDITION
+    2 00000000         ;Add two 32-bit numbers and use of store instruction
+    3 00000000         
+    4 00000000                 AREA             Program, CODE, READONLY
+    5 00000000         ENTRY
+    6 00000000 E59F1010        LDR              R1, Value1  ;Get the data from 
+                                                            label 'Value1'
+    7 00000004 E59F2010        LDR              R2, Value2  ;Get the data from 
+                                                            label 'Value2'
+    8 00000008 E0813002        ADD              R3, R1, R2  ;Addition operation
+                                                            
+    9 0000000C E3A04101        MOV              R4, #0X40000000 ;Load the memor
+                                                            y address to R4
+   10 00000010 E5843000        STR              R3, [R4]    ;Store the result f
+                                                            rom R3 to Memory
+   11 00000014 EF000011        SWI              &11         ;Termination
+   12 00000018         
+   13 00000018 12345678 
+                       Value1  DCD              &12345678   ; 32 bit integer(al
+                                                            igned to 4-bytes) t
+                                                            o R1
+   14 0000001C 11111111 
+                       Value2  DCD              &11111111   ; 32 bit integer(al
+                                                            igned to 4-bytes) t
+                                                            o R2
+   15 00000020         
+   16 00000020                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\10.d -o.\objects\10.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\I
+nclude -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__
+UVISION_VERSION SETA 529" --list=.\listings\10.lst 10.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 5 in file 10.s
+   Uses
+      None
+Comment: ENTRY unused
+Program 00000000
+
+Symbol: Program
+   Definitions
+      At line 4 in file 10.s
+   Uses
+      None
+Comment: Program unused
+Value1 00000018
+
+Symbol: Value1
+   Definitions
+      At line 13 in file 10.s
+   Uses
+      At line 6 in file 10.s
+Comment: Value1 used once
+Value2 0000001C
+
+Symbol: Value2
+   Definitions
+      At line 14 in file 10.s
+   Uses
+      At line 7 in file 10.s
+Comment: Value2 used once
+4 symbols
+336 symbols in table
