@@ -1,0 +1,104 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;DESCENDING
+    2 00000000         ;Arranging numbers in Descending order
+    3 00000000                 AREA             DESCEND, CODE, READONLY
+    4 00000000                 ENTRY
+    5 00000000         START
+    6 00000000 E3A00005        MOV              R0, #05     ; six numbers
+    7 00000004         
+    8 00000004 E3A01005 
+                       LOOP3   MOV              R1, #05     ; R1 is the second 
+                                                            counter
+    9 00000008 E3A02101        MOV              R2, #0x40000000 
+                                                            ; data and result
+   10 0000000C         
+   11 0000000C E5923000 
+                       LOOP2   LDR              R3, [R2]
+   12 00000010 E2822004        ADD              R2, R2, #04
+   13 00000014 E5925000        LDR              R5, [R2]
+   14 00000018 E1530005        CMP              R3, R5      ; compare R3 & R5 r
+                                                            egisters
+   15 0000001C CA000003        BGT              LOOP1       ; if correct order 
+                                                            continue else go to
+                                                             LOOP1
+   16 00000020 E5823000        STR              R3, [R2]    ; ELSE exchange
+   17 00000024 E2422004        SUB              R2, R2, #04 ; Point to first co
+                                                            unter
+   18 00000028 E5825000        STR              R5, [R2]
+   19 0000002C E2822004        ADD              R2, R2, #04 ; Point to next cou
+                                                            nter
+   20 00000030         
+   21 00000030 E2411001 
+                       LOOP1   SUB              R1, R1, #01 ; Decrement the cou
+                                                            nter R1
+   22 00000034 E3510000        CMP              R1, #00     ; compare with zero
+                                                            
+   23 00000038 1AFFFFF3        BNE              LOOP2       ; if not equal go t
+                                                            o LOOP2
+   24 0000003C E2400001        SUB              R0, R0, #01 ; Decrement the cou
+                                                            nter
+   25 00000040 E3500000        CMP              R0, #00     ; again compare wit
+                                                            h zero
+   26 00000044 1AFFFFEE        BNE              LOOP3       ; if not equal to z
+                                                            ero go to LOOP3
+   27 00000048 EF000011        SWI              &11         ; Terminate the pro
+                                                            gram
+   28 0000004C         
+   29 0000004C                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\5.d -o.\objects\5.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Inc
+lude -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__UV
+ISION_VERSION SETA 529" --list=.\listings\5.lst 5.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DESCEND 00000000
+
+Symbol: DESCEND
+   Definitions
+      At line 3 in file 5.s
+   Uses
+      None
+Comment: DESCEND unused
+LOOP1 00000030
+
+Symbol: LOOP1
+   Definitions
+      At line 21 in file 5.s
+   Uses
+      At line 15 in file 5.s
+Comment: LOOP1 used once
+LOOP2 0000000C
+
+Symbol: LOOP2
+   Definitions
+      At line 11 in file 5.s
+   Uses
+      At line 23 in file 5.s
+Comment: LOOP2 used once
+LOOP3 00000004
+
+Symbol: LOOP3
+   Definitions
+      At line 8 in file 5.s
+   Uses
+      At line 26 in file 5.s
+Comment: LOOP3 used once
+START 00000000
+
+Symbol: START
+   Definitions
+      At line 5 in file 5.s
+   Uses
+      None
+Comment: START unused
+5 symbols
+337 symbols in table
