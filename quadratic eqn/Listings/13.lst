@@ -1,0 +1,67 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Program to compute 6x^2 - 9x +2 for a given x.
+    2 00000000         
+    3 00000000                 AREA             QUADRATIC, CODE, READONLY
+    4 00000000         ENTRY
+    5 00000000 E3A00007        MOV              R0, #7      ; X = 7
+    6 00000004 E0010090        MUL              R1, R0, R0  ; R1 = X^2 = 49 DEC
+                                                            IMAL = 31 IN HEX
+    7 00000008 E3A02006        MOV              R2, #6      ; R2 = 6
+    8 0000000C E0030291        MUL              R3, R1, R2  ; 6x^2 = 6*49 = 249
+                                                             in dec = 126 in he
+                                                            x
+    9 00000010 E3A04009        MOV              R4, #9      ; R4 = 9
+   10 00000014 E0050094        MUL              R5, R4, R0  ; R5 = 9X = 9*7 = 6
+                                                            3 in dec = 3F in he
+                                                            x
+   11 00000018 E0436005        SUB              R6, R3, R5  ; R6 = R3-R5 = 6X^2
+                                                            -9X = 126-3F = E7
+   12 0000001C E2867002        ADD              R7, R6, #2  ; R7 = 6X^2-9X+2 = 
+                                                            E9
+   13 00000020                 ALIGN
+   14 00000020         
+   15 00000020 EAFFFFFE 
+                       STOP    B                STOP
+   16 00000024 EF000011        SWI              0x11
+   17 00000028                 END                          ;End of program
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\13.d -o.\objects\13.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\I
+nclude -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__
+UVISION_VERSION SETA 529" --list=.\listings\13.lst 13.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 4 in file 13.s
+   Uses
+      None
+Comment: ENTRY unused
+QUADRATIC 00000000
+
+Symbol: QUADRATIC
+   Definitions
+      At line 3 in file 13.s
+   Uses
+      None
+Comment: QUADRATIC unused
+STOP 00000020
+
+Symbol: STOP
+   Definitions
+      At line 15 in file 13.s
+   Uses
+      At line 15 in file 13.s
+Comment: STOP used once
+3 symbols
+335 symbols in table
