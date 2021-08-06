@@ -1,0 +1,70 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;LOGICAL_OR
+    2 00000000         ; Assembly program to verify LOGICAL OR operation
+    3 00000000         ;PRE R0 = 0X00000000
+    4 00000000         
+    5 00000000                 AREA             LOGICALOR, CODE, READONLY
+    6 00000000                 ENTRY
+    7 00000000         
+    8 00000000 E3A00000        MOV              R0, #0x00000000 ; R0 = 0000 000
+                                                            0 0000 0000 0000 00
+                                                            00 0000 0000 IN BIN
+                                                             = 0X00000000 IN HE
+                                                            X
+    9 00000004 E3A01078        MOV              R1, #0x00000078 ; R1 = 0000 000
+                                                            0 0000 0000 0000 00
+                                                            00 0111 1000 IN BIN
+                                                             = 0X00000078 IN HE
+                                                            X
+   10 00000008 E3A02079        MOV              R2, #0x00000079 ; R2 = 0000 000
+                                                            0 0000 0000 0000 00
+                                                            00 0111 1001 IN BIN
+                                                             = 0X00000079 IN HE
+                                                            X
+   11 0000000C         
+   12 0000000C E1810002        ORR              R0, R1, R2  ; R0 = R1 OR R2
+   13 00000010         ; R0 = 0000 0000 0000 0000 0000 0000 0111 10010 IN BIN =
+                        0X00000079 IN HEX
+   14 00000010 E1A00000        NOP
+   15 00000014 E1A00000        NOP                          ; NOP is a mnemonic
+                                                             which means no ope
+                                                            ration and it does 
+                                                            not execute anythin
+                                                            g but uses full pip
+                                                            eline
+   16 00000018         
+   17 00000018         ;A NOP is most commonly used for timing purposes, to for
+                       ce memory alignment, to prevent hazards, 
+   18 00000018         ;to occupy a branch delay slot, to render void an existi
+                       ng instruction such as a jump, 
+   19 00000018         ;or as a place-holder to be replaced by active instructi
+                       ons later on in program development 
+   20 00000018         ;(or to replace removed instructions when reorganizing w
+                       ould be problematic or time-consuming).
+   21 00000018         
+   22 00000018                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\9.d -o.\objects\9.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Inc
+lude -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__UV
+ISION_VERSION SETA 529" --list=.\listings\9.lst 9.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+LOGICALOR 00000000
+
+Symbol: LOGICALOR
+   Definitions
+      At line 5 in file 9.s
+   Uses
+      None
+Comment: LOGICALOR unused
+1 symbol
+333 symbols in table
