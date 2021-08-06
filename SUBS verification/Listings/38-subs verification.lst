@@ -1,0 +1,44 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; Program to verify suffix S Substraction
+    2 00000000         ; PRE cpsr = nzcvqiFt_USER
+    3 00000000         
+    4 00000000                 AREA             SUBSTRACTION, CODE, READONLY
+    5 00000000         ENTRY
+    6 00000000 E3A01001        MOV              R1, #0x00000001
+    7 00000004 E2511001        SUBS             R1, R1, #1
+    8 00000008         
+    9 00000008                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=".\
+objects\38-subs verification.d" -o".\objects\38-subs verification.o" -IC:\Keil_
+v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --p
+redefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 529" --list=.\list
+ings\38-subs verification.lst "38-SUBS verification.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 5 in file 38-SUBS
+   Uses
+      None
+Comment: ENTRY unused
+SUBSTRACTION 00000000
+
+Symbol: SUBSTRACTION
+   Definitions
+      At line 4 in file 38-SUBS
+   Uses
+      None
+Comment: SUBSTRACTION unused
+2 symbols
+334 symbols in table
