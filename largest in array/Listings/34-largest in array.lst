@@ -1,0 +1,83 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Program to find largest of a number
+    2 00000000         
+    3 00000000                 AREA             LARGE, CODE, READONLY
+    4 00000000         ENTRY
+    5 00000000 E3A05006        MOV              R5, #06     ;counter value e.g 
+                                                            7 numbers
+    6 00000004 E3A01101        MOV              R1, #0x40000000 ;start of data 
+                                                            memory
+    7 00000008 E3A02171        MOV              R2, #0x4000001C 
+                                                            ; result location
+    8 0000000C E5913000        LDR              R3, [R1]    ; get first data
+    9 00000010 E2811004 
+                       LOOP    ADD              R1,R1,#04   ; memory pointer up
+                                                            date for next numbe
+                                                            r
+   10 00000014 E5914000        LDR              R4, [R1]    ; get first number
+   11 00000018 E1530004        CMP              R3, R4      ; compare first wit
+                                                            h second number
+   12 0000001C 8A000000        BHI              LOOP1       ;if first no. great
+                                                            er than second, loo
+                                                            p1
+   13 00000020 E1A03004        MOV              R3, R4      ; result
+   14 00000024         
+   15 00000024 E2555001 
+                       LOOP1   SUBS             R5,R5,#01   ;counter decrement
+   16 00000028 E3550000        CMP              R5, #00
+   17 0000002C 1AFFFFF7        BNE              LOOP        ;All numbers checke
+                                                            d?
+   18 00000030 E5823000        STR              R3, [R2]    ;result in R3
+   19 00000034         
+   20 00000034 EF000011        SWI              0x11
+   21 00000038                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=".\
+objects\34-largest in array.d" -o".\objects\34-largest in array.o" -IC:\Keil_v5
+\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --pre
+define="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 529" --list=.\listin
+gs\34-largest in array.lst "34-Largest in array.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 4 in file 34-Largest
+   Uses
+      None
+Comment: ENTRY unused
+LARGE 00000000
+
+Symbol: LARGE
+   Definitions
+      At line 3 in file 34-Largest
+   Uses
+      None
+Comment: LARGE unused
+LOOP 00000010
+
+Symbol: LOOP
+   Definitions
+      At line 9 in file 34-Largest
+   Uses
+      At line 17 in file 34-Largest
+Comment: LOOP used once
+LOOP1 00000024
+
+Symbol: LOOP1
+   Definitions
+      At line 15 in file 34-Largest
+   Uses
+      At line 12 in file 34-Largest
+Comment: LOOP1 used once
+4 symbols
+336 symbols in table
