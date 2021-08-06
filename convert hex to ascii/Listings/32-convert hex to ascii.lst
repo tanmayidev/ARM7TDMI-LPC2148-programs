@@ -1,0 +1,133 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Program to convert hex to ascii
+    2 00000000         
+    3 00000000                 AREA             CONVERT, CODE, READONLY
+    4 00000000         ENTRY
+    5 00000000         
+    6 00000000 E59F0024 
+                       MAIN    LDR              R0, =VALUE  ;load the address o
+                                                            f value i.e., 30
+    7 00000004 E5901000        LDR              R1, [R0]    ;fetch the data fro
+                                                            m location
+    8 00000008 E1A02001        MOV              R2, R1      ;move data in R1 to
+                                                             R2
+    9 0000000C E3510009        CMP              R1, #0x09   ; compare r1 with 0
+                                                            x09
+   10 00000010 8A000001        BHI              GREAT       ;if value is greate
+                                                            r then go to LABEL 
+                                                            GREAT
+   11 00000014         
+   12 00000014 E2811030        ADD              R1, R1, #0X30 ;add 30 if data i
+                                                            s <9
+   13 00000018         
+   14 00000018 EB000000        BL               NEXT        ;branch with link t
+                                                            o NEXT
+   15 0000001C         
+   16 0000001C         GREAT
+   17 0000001C E2811037        ADD              R1, R1, #0x37 ;add 37th if data
+                                                             is 0C > 9, 0C+37 =
+                                                            
+   18 00000020         
+   19 00000020         NEXT
+   20 00000020 E3A04101        LDR              R4, =0x40000000 ;Address pointe
+                                                            r for result
+   21 00000024 E5841000        STR              R1, [R4]    ;Store the content 
+                                                            of r1 to r4 address
+                                                            
+   22 00000028         
+   23 00000028 EAFFFFFE 
+                       STOP    B                STOP
+   24 0000002C         
+   25 0000002C 00000000        AREA             DATA, CODE
+   26 00000000 0000000C 
+                       VALUE   DCD              &0C
+   27 00000004                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=".\
+objects\32-convert hex to ascii.d" -o".\objects\32-convert hex to ascii.o" -IC:
+\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Phili
+ps --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 529" --list=
+.\listings\32-convert hex to ascii.lst "32-convert hex to ascii.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CONVERT 00000000
+
+Symbol: CONVERT
+   Definitions
+      At line 3 in file 32-convert
+   Uses
+      None
+Comment: CONVERT unused
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 4 in file 32-convert
+   Uses
+      None
+Comment: ENTRY unused
+GREAT 0000001C
+
+Symbol: GREAT
+   Definitions
+      At line 16 in file 32-convert
+   Uses
+      At line 10 in file 32-convert
+Comment: GREAT used once
+MAIN 00000000
+
+Symbol: MAIN
+   Definitions
+      At line 6 in file 32-convert
+   Uses
+      None
+Comment: MAIN unused
+NEXT 00000020
+
+Symbol: NEXT
+   Definitions
+      At line 19 in file 32-convert
+   Uses
+      At line 14 in file 32-convert
+Comment: NEXT used once
+STOP 00000028
+
+Symbol: STOP
+   Definitions
+      At line 23 in file 32-convert
+   Uses
+      At line 23 in file 32-convert
+Comment: STOP used once
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATA 00000000
+
+Symbol: DATA
+   Definitions
+      At line 25 in file 32-convert
+   Uses
+      None
+Comment: DATA unused
+VALUE 00000000
+
+Symbol: VALUE
+   Definitions
+      At line 26 in file 32-convert
+   Uses
+      At line 6 in file 32-convert
+Comment: VALUE used once
+2 symbols
+342 symbols in table
