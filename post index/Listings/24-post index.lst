@@ -1,0 +1,53 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Post index
+    2 00000000         ;LDR r0, [r1],#4 - Updates the address register after ad
+                       dress is used , r1 for
+    3 00000000         ; referring to the memory and after access to the memory
+                       , modify r1 and load modifies value r1 back to r1.
+    4 00000000         
+    5 00000000         
+    6 00000000                 AREA             POST_INDEX, CODE, READONLY
+    7 00000000         ENTRY
+    8 00000000 E3A00000        MOV              R0, #0x00000000
+    9 00000004 E3A01101        MOV              R1, #0x40000000
+   10 00000008         ; mem32[0x40000000] = 0x01010101
+   11 00000008         ; mem32[0x40000004] = 0x02020202
+   12 00000008 E4910004        LDR              R0, [R1], #4
+   13 0000000C         
+   14 0000000C         
+   15 0000000C EF000011        SWI              0x11
+   16 00000010                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=".\
+objects\24-post index.d" -o".\objects\24-post index.o" -IC:\Keil_v5\ARM\RV31\IN
+C -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine="__EV
+AL SETA 1" --predefine="__UVISION_VERSION SETA 529" --list=.\listings\24-post i
+ndex.lst "24-Post index.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 7 in file 24-Post
+   Uses
+      None
+Comment: ENTRY unused
+POST_INDEX 00000000
+
+Symbol: POST_INDEX
+   Definitions
+      At line 6 in file 24-Post
+   Uses
+      None
+Comment: POST_INDEX unused
+2 symbols
+334 symbols in table
