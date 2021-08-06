@@ -1,0 +1,74 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Program to find factorial of a number
+    2 00000000                 AREA             FACTORIAL, CODE, READONLY
+    3 00000000         ENTRY
+    4 00000000 E3A00008        MOV              R0, #08     ;GIVEN NUMBER
+    5 00000004 E1A01000        MOV              R1, R0
+    6 00000008 E3500002        CMP              R0, #02
+    7 0000000C E3A02001        MOV              R2, #01
+    8 00000010 BA000005        BLT              STOP        ;Stop, if the numbe
+                                                            r is less than 1
+    9 00000014         
+   10 00000014 E2511001 
+                       REPEAT  SUBS             R1,R1,#01
+   11 00000018 E3510001        CMP              R1, #01
+   12 0000001C 0A000002        BEQ              STOP
+   13 00000020 E0020190        MUL              R2,R0,R1
+   14 00000024 E1A00002        MOV              R0,R2       ; R0 = 8*7*6*5*4*3*
+                                                            2*1 = 40320 IN DEC 
+                                                            = 9D80 IN HEX
+   15 00000028 EAFFFFF9        B                REPEAT
+   16 0000002C         STOP
+   17 0000002C EF000011        SWI              &11
+   18 00000030                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\17-factorial.d -o.\objects\17-factorial.o -IC:\Keil_v5\ARM\RV31\INC -IC:
+\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SET
+A 1" --predefine="__UVISION_VERSION SETA 529" --list=.\listings\17-factorial.ls
+t 17-Factorial.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 3 in file 17-Factorial.s
+   Uses
+      None
+Comment: ENTRY unused
+FACTORIAL 00000000
+
+Symbol: FACTORIAL
+   Definitions
+      At line 2 in file 17-Factorial.s
+   Uses
+      None
+Comment: FACTORIAL unused
+REPEAT 00000014
+
+Symbol: REPEAT
+   Definitions
+      At line 10 in file 17-Factorial.s
+   Uses
+      At line 15 in file 17-Factorial.s
+Comment: REPEAT used once
+STOP 0000002C
+
+Symbol: STOP
+   Definitions
+      At line 16 in file 17-Factorial.s
+   Uses
+      At line 8 in file 17-Factorial.s
+      At line 12 in file 17-Factorial.s
+
+4 symbols
+336 symbols in table
