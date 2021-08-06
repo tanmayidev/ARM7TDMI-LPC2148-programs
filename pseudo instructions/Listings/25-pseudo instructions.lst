@@ -1,0 +1,46 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; Loading constants
+    2 00000000         ; Loading the constant 0xff00ffff using a MVN instructio
+                       n
+    3 00000000         
+    4 00000000                 AREA             PSEUDO_INSTRUCTION, CODE, READO
+NLY
+    5 00000000         ENTRY
+    6 00000000 E3E008FF        MVN              R0, #0x00FF0000
+    7 00000004 EF000011        SWI              0x11
+    8 00000008         
+    9 00000008                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=".\
+objects\25-pseudo instructions.d" -o".\objects\25-pseudo instructions.o" -IC:\K
+eil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips
+ --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 529" --list=.\
+listings\25-pseudo instructions.lst "25-Pseudo instructions.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 5 in file 25-Pseudo
+   Uses
+      None
+Comment: ENTRY unused
+PSEUDO_INSTRUCTION 00000000
+
+Symbol: PSEUDO_INSTRUCTION
+   Definitions
+      At line 4 in file 25-Pseudo
+   Uses
+      None
+Comment: PSEUDO_INSTRUCTION unused
+2 symbols
+334 symbols in table
