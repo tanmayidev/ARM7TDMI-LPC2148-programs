@@ -1,0 +1,67 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Multiply two 16 bit numbers
+    2 00000000         
+    3 00000000                 AREA             BITMUL, CODE, READONLY
+    4 00000000         ENTRY
+    5 00000000 E3A00101        MOV              R0, #0x40000000 ; Move the addr
+                                                            ess 0x40000000 to r
+                                                            0
+    6 00000004 E1D020B0        LDRH             R2, [R0]    ; Move address cont
+                                                            ent (16 bit data) o
+                                                            f r0 to r2
+    7 00000008         
+    8 00000008 E3A01119        MOV              R1, #0x40000006 ; Move the addr
+                                                            ess 0x40000006 to r
+                                                            1
+    9 0000000C E1D130B0        LDRH             R3, [R1]    ; Move the address 
+                                                            content of r1 to r3
+                                                            
+   10 00000010         
+   11 00000010 E0050392        MUL              R5, R2, R3  ; Multiplication r5
+                                                             = r2*r3
+   12 00000014         
+   13 00000014 E3A04171        MOV              R4, #0x4000001C ; Move the addr
+                                                            ess 0x4000001C to r
+                                                            4
+   14 00000018         
+   15 00000018 E5845000        STR              R5, [R4]    ; content of r5 now
+                                                             moved to address l
+                                                            ocation 0x4000001C
+   16 0000001C         
+   17 0000001C EF000011        SWI              0x11        ;Terminating the pr
+                                                            ogram
+   18 00000020                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=".\
+objects\36-multiply two 16bit.d" -o".\objects\36-multiply two 16bit.o" -IC:\Kei
+l_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips -
+-predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 529" --list=.\li
+stings\36-multiply two 16bit.lst "36-multiply two 16bit.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+BITMUL 00000000
+
+Symbol: BITMUL
+   Definitions
+      At line 3 in file 36-multiply
+   Uses
+      None
+Comment: BITMUL unused
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 4 in file 36-multiply
+   Uses
+      None
+Comment: ENTRY unused
+2 symbols
+334 symbols in table
