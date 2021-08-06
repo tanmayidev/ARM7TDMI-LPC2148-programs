@@ -1,0 +1,54 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;MULTIPLE_DATA_TRANSFER
+    2 00000000                 AREA             MULREGISTERS, CODE, READONLY
+    3 00000000         ENTRY
+    4 00000000 E3A00101        MOV              R0, #0x40000000 ;Load the Resgi
+                                                            ster r0 with memory
+                                                             location 0x4000000
+                                                            0
+    5 00000004 E8B0000E        LDMIA            R0!, {R1-R3} ;R0! is the base a
+                                                            ddress of the memor
+                                                            y
+    6 00000008         ; (R1-R3) is the range of registers R1, R2 and R3
+    7 00000008 E3A00171        MOV              R0, #0x4000001C ; Load the memo
+                                                            ry location for sto
+                                                            ring back to the me
+                                                            mory
+    8 0000000C E8A0000E        STMIA            R0!, {R1-R3} ;R0! base register
+                                                            , (R1-R3) content o
+                                                            f R1, R2 and R3
+    9 00000010         ;transferring back to the base address of the memory
+   10 00000010                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\12.d -o.\objects\12.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\I
+nclude -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__
+UVISION_VERSION SETA 529" --list=.\listings\12.lst 12.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 3 in file 12.s
+   Uses
+      None
+Comment: ENTRY unused
+MULREGISTERS 00000000
+
+Symbol: MULREGISTERS
+   Definitions
+      At line 2 in file 12.s
+   Uses
+      None
+Comment: MULREGISTERS unused
+2 symbols
+334 symbols in table
