@@ -1,0 +1,60 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;16BIT_DATA_TRANSFER
+    2 00000000         ;Transferring 16 bit of data
+    3 00000000         
+    4 00000000                 AREA             DATATRANSFER, CODE, READONLY
+    5 00000000                 ENTRY
+    6 00000000         
+    7 00000000 E59F1004        LDR              R1, Value   ;load the value to 
+                                                            be moved
+    8 00000004 E58F1004        STR              R1, Result  ;store it back in a
+                                                             different location
+                                                            
+    9 00000008 EF000011        SWI              &11
+   10 0000000C         
+   11 0000000C CD AB   Value   DCW              0xABCD
+   12 0000000E 00 00           ALIGN
+   13 00000010 00 00   Result  DCW              0
+   14 00000012         
+   15 00000012                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\7.d -o.\objects\7.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Inc
+lude -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__UV
+ISION_VERSION SETA 529" --list=.\listings\7.lst 7.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATATRANSFER 00000000
+
+Symbol: DATATRANSFER
+   Definitions
+      At line 4 in file 7.s
+   Uses
+      None
+Comment: DATATRANSFER unused
+Result 00000010
+
+Symbol: Result
+   Definitions
+      At line 13 in file 7.s
+   Uses
+      At line 8 in file 7.s
+Comment: Result used once
+Value 0000000C
+
+Symbol: Value
+   Definitions
+      At line 11 in file 7.s
+   Uses
+      At line 7 in file 7.s
+Comment: Value used once
+3 symbols
+335 symbols in table
