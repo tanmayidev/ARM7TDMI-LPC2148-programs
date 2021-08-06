@@ -1,0 +1,54 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Program for multiple register transfer using LDMIA
+    2 00000000         
+    3 00000000                 AREA             MULREGTRANS, CODE, READONLY
+    4 00000000         ENTRY
+    5 00000000 E3A00101        MOV              R0, #0x40000000 ;Memory pointer
+                                                            
+    6 00000004         
+    7 00000004 E8B0000E        LDMIA            R0!, {R1-R3} ;Get data to R1, R
+                                                            2, R3 simultaneousl
+                                                            y
+    8 00000008         
+    9 00000008 E3A00171        MOV              R0, #0x4000001C ;Memory pointer
+                                                             for result
+   10 0000000C         
+   11 0000000C E8A0000E        STMIA            R0!, {R1-R3} 
+                                                            ;R1,R2,R3 to memory
+                                                            
+   12 00000010         
+   13 00000010                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=".\
+objects\21-reg transfer ldmia.d" -o".\objects\21-reg transfer ldmia.o" -IC:\Kei
+l_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips -
+-predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 529" --list=.\li
+stings\21-reg transfer ldmia.lst "21-reg transfer LDMIA.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 4 in file 21-reg
+   Uses
+      None
+Comment: ENTRY unused
+MULREGTRANS 00000000
+
+Symbol: MULREGTRANS
+   Definitions
+      At line 3 in file 21-reg
+   Uses
+      None
+Comment: MULREGTRANS unused
+2 symbols
+334 symbols in table
