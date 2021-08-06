@@ -1,0 +1,40 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;ASR Arithmetic Shift Right MOV R0, R2, ASR #1
+    2 00000000         ;Before execution R2 = 0x00000030
+    3 00000000         
+    4 00000000                 AREA             ASRProgram, CODE, READONLY
+    5 00000000                 ENTRY
+    6 00000000         
+    7 00000000 E3A02030        MOV              R2, #0X00000030 ; 0X 0000 0000 
+                                                            0000 0000 0000 0000
+                                                             0011 0000
+    8 00000004 E1A000C2        MOV              R0, R2, ASR #1 ; 0X  0000 0000 
+                                                            0000 0000 0000 0000
+                                                             0001 1000
+    9 00000008 EF000011        SWI              &11
+   10 0000000C                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\8.d -o.\objects\8.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Inc
+lude -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__UV
+ISION_VERSION SETA 529" --list=.\listings\8.lst 8.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ASRProgram 00000000
+
+Symbol: ASRProgram
+   Definitions
+      At line 4 in file 8.s
+   Uses
+      None
+Comment: ASRProgram unused
+1 symbol
+333 symbols in table
