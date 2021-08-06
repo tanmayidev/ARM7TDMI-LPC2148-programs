@@ -1,0 +1,60 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;SWAP
+    2 00000000         ;Use of swap operation
+    3 00000000         
+    4 00000000                 AREA             XCHANGE, CODE, READONLY
+    5 00000000         ENTRY
+    6 00000000 E3A00101        MOV              R0, #0x40000000 ;Menory Pointer
+                                                            
+    7 00000004         
+    8 00000004 E5901000        LDR              R1, [R0]    ;Get first number t
+                                                            o R1
+    9 00000008         
+   10 00000008 E2800008        ADD              R0, R0, #08 ;update memory poin
+                                                            ter to 0x40000008
+   11 0000000C         
+   12 0000000C E1001091        SWP              R1, R1, [R0] ;Exchange R1 with 
+                                                            memory 0x40000008
+   13 00000010         
+   14 00000010 E1A02001        MOV              R2, R1      ;Result in R2
+   15 00000014         
+   16 00000014 E2400008        SUB              R0, R0, #08 ;Pointer to 0x40000
+                                                            000
+   17 00000018         
+   18 00000018 E1002092        SWP              R2, R2, [R0] ;Exchange R2 with 
+                                                            0x40000000
+   19 0000001C         
+   20 0000001C                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\15.d -o.\objects\15.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\I
+nclude -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__
+UVISION_VERSION SETA 529" --list=.\listings\15.lst 15.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 5 in file 15.s
+   Uses
+      None
+Comment: ENTRY unused
+XCHANGE 00000000
+
+Symbol: XCHANGE
+   Definitions
+      At line 4 in file 15.s
+   Uses
+      None
+Comment: XCHANGE unused
+2 symbols
+334 symbols in table
