@@ -1,0 +1,60 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Program for multiple register data exchange using memor
+                       y
+    2 00000000                 AREA             MULREG_XCHG, CODE, READONLY
+    3 00000000         ENTRY
+    4 00000000 E3A00101        MOV              R0, #0x40000000 ;Memory pointer
+                                                            
+    5 00000004 E8B0003E        LDMIA            R0!, {R1-R5} ;Get data to R1, R
+                                                            2, R3
+    6 00000008         
+    7 00000008 E3A001E1        MOV              R0, #0x40000038
+    8 0000000C E8A0003E        STMIA            R0!, {R1-R5}
+    9 00000010         
+   10 00000010 E3A00171        MOV              R0, #0x4000001C
+   11 00000014 E8B0003E        LDMIA            R0!, {R1-R5}
+   12 00000018         
+   13 00000018 E3A00101        MOV              R0, #0x40000000
+   14 0000001C E8A0003E        STMIA            R0!, {R1-R5}
+   15 00000020         
+   16 00000020 E3A001E1        MOV              R0, #0x40000038
+   17 00000024 E8B0003E        LDMIA            R0!, {R1-R5}
+   18 00000028         
+   19 00000028 E3A00171        MOV              R0, #0x4000001C
+   20 0000002C E8A0003E        STMIA            R0!, {R1-R5} ;R1, R2, R3, R4 AN
+                                                            D R5 to memory
+   21 00000030         
+   22 00000030                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\14.d -o.\objects\14.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\I
+nclude -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__
+UVISION_VERSION SETA 529" --list=.\listings\14.lst 14.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 3 in file 14.s
+   Uses
+      None
+Comment: ENTRY unused
+MULREG_XCHG 00000000
+
+Symbol: MULREG_XCHG
+   Definitions
+      At line 2 in file 14.s
+   Uses
+      None
+Comment: MULREG_XCHG unused
+2 symbols
+334 symbols in table
