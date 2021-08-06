@@ -1,0 +1,91 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;ARM_LENGTH_OF_A_STRING
+    2 00000000         ;Program to find length of a string
+    3 00000000         
+    4 00000000                 AREA             STRING, CODE, READONLY
+    5 00000000                 ENTRY
+    6 00000000         
+    7 00000000 E3A00000        MOV              R0, #00     ;Result
+    8 00000004 E59F1040        LDR              R1, =TEXT
+    9 00000008         
+   10 00000008 E4D12001 
+                       BACK    LDRB             R2, [R1], #01
+   11 0000000C E3520024        CMP              R2, #'$'    ; $ indicate end of
+                                                             string
+   12 00000010 0A000001        BEQ              STOP
+   13 00000014 E2800001        ADD              R0, R0, #01
+   14 00000018 EAFFFFFA        B                BACK
+   15 0000001C         STOP
+   16 0000001C E3A03101        MOV              R3, #0x40000000 ; Result locati
+                                                            on, open a memory w
+                                                            indow and verify th
+                                                            e answer
+   17 00000020 E5830000        STR              R0, [R3]
+   18 00000024 EF000011        SWI              &11
+   19 00000028 43 4F 4D 
+              50 55 54 
+              45 52 20 
+              53 43 49 
+              45 4E 43 
+              45 20 41 
+              4E 44 20 
+              45 4E 47 
+              49 4E 45 
+              45 52 49 
+              4E 47 24 TEXT    DCB              "COMPUTER SCIENCE AND ENGINEERI
+NG$" 
+                                                            ;Total 33 character
+                                                            s in text 33dec = 2
+                                                            1hex
+   20 00000049                 END
+              00 00 00 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\3.d -o.\objects\3.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Inc
+lude -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__UV
+ISION_VERSION SETA 529" --list=.\listings\3.lst 3.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+BACK 00000008
+
+Symbol: BACK
+   Definitions
+      At line 10 in file 3.s
+   Uses
+      At line 14 in file 3.s
+Comment: BACK used once
+STOP 0000001C
+
+Symbol: STOP
+   Definitions
+      At line 15 in file 3.s
+   Uses
+      At line 12 in file 3.s
+Comment: STOP used once
+STRING 00000000
+
+Symbol: STRING
+   Definitions
+      At line 4 in file 3.s
+   Uses
+      None
+Comment: STRING unused
+TEXT 00000028
+
+Symbol: TEXT
+   Definitions
+      At line 19 in file 3.s
+   Uses
+      At line 8 in file 3.s
+Comment: TEXT used once
+4 symbols
+338 symbols in table
