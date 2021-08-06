@@ -1,0 +1,51 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Shift Right data using LSR Instruction
+    2 00000000                 AREA             SRIGHT, CODE, READONLY
+    3 00000000         ENTRY
+    4 00000000 E3A00040        MOV              R0, #0x00000040 ; Load the data
+                                                             0000 0000 0000 000
+                                                            0 0000 0000 0100 00
+                                                            00 to R0
+    5 00000004 E1A011A0        LSR              R1, R0, #0x03 ; Shift Right one
+                                                             position
+    6 00000008         ; 0000 0000 0000 0000 0000 0000 0010 0000 = 0020
+    7 00000008         ; Shift Right two position
+    8 00000008         ; 0000 0000 0000 0000 0000 0000 0001 0000 = 0010
+    9 00000008         ; Shift Right three position
+   10 00000008         ; 0000 0000 0000 0000 0000 0000 0000 1000 = 0008
+   11 00000008 EF000011        SWI              0x11
+   12 0000000C                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=".\
+objects\16 - shift right.d" -o".\objects\16 - shift right.o" -IC:\Keil_v5\ARM\R
+V31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine
+="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 529" --list=.\listings\16 
+- shift right.lst "16 - Shift Right.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 3 in file 16
+   Uses
+      None
+Comment: ENTRY unused
+SRIGHT 00000000
+
+Symbol: SRIGHT
+   Definitions
+      At line 2 in file 16
+   Uses
+      None
+Comment: SRIGHT unused
+2 symbols
+334 symbols in table
