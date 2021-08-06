@@ -1,0 +1,47 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; Program for 1's complement
+    2 00000000         
+    3 00000000                 AREA             ONESCOMP, CODE, READONLY
+    4 00000000         ENTRY
+    5 00000000 E3A00009        MOV              R0, #0x09
+    6 00000004 E1E01000        MVN              R1, R0      ;one's complement o
+                                                            f r0
+    7 00000008         ; 0x 0000 0000 0000 0000 0000 0000 0000 1001
+    8 00000008         ;  1111 1111 1111 1111 1111 1111 1111 0110
+    9 00000008         ;   f    f    f     f    f    f    f    6
+   10 00000008 EF000011        SWI              &11
+   11 0000000C                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=".\
+objects\30-1's complement.d" -o".\objects\30-1's complement.o" -IC:\Keil_v5\ARM
+\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --predefi
+ne="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 529" --list=.\listings\3
+0-1's complement.lst "30-1's complement.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 4 in file 30-1's
+   Uses
+      None
+Comment: ENTRY unused
+ONESCOMP 00000000
+
+Symbol: ONESCOMP
+   Definitions
+      At line 3 in file 30-1's
+   Uses
+      None
+Comment: ONESCOMP unused
+2 symbols
+334 symbols in table
