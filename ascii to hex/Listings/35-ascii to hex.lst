@@ -1,0 +1,116 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Program to convert ASCII to HEX
+    2 00000000         
+    3 00000000                 AREA             ASCII_TO_HEX, CODE, READONLY
+    4 00000000         ENTRY
+    5 00000000         
+    6 00000000         MAIN
+    7 00000000 E59F0024        LDR              R0, =VALUE1
+    8 00000004 E5901000        LDR              R1, [R0]
+    9 00000008 E1A02001        MOV              R2, R1
+   10 0000000C E3510039        CMP              R1, #0x39
+   11 00000010 8A000001        BHI              GREAT
+   12 00000014 E2411030        SUB              R1, R1, #0x30 ;SUB if data <39
+   13 00000018 EB000000        BL               NEXT
+   14 0000001C         GREAT
+   15 0000001C E2411037        SUB              R1, R1, #0x37 ;SUB 37th if data
+                                                             > 39
+   16 00000020         NEXT
+   17 00000020 E3A04101        LDR              R4, =0x40000000
+   18 00000024 E5841000        STR              R1, [R4]
+   19 00000028 EAFFFFFE 
+                       STOP    B                STOP
+   20 0000002C         
+   21 0000002C 00000000        AREA             DATA, CODE
+   22 00000000 00000035 
+                       VALUE1  DCD              &35
+   23 00000004                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=".\
+objects\35-ascii to hex.d" -o".\objects\35-ascii to hex.o" -IC:\Keil_v5\ARM\RV3
+1\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine="
+__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 529" --list=.\listings\35-as
+cii to hex.lst "35-Ascii to hex.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ASCII_TO_HEX 00000000
+
+Symbol: ASCII_TO_HEX
+   Definitions
+      At line 3 in file 35-Ascii
+   Uses
+      None
+Comment: ASCII_TO_HEX unused
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 4 in file 35-Ascii
+   Uses
+      None
+Comment: ENTRY unused
+GREAT 0000001C
+
+Symbol: GREAT
+   Definitions
+      At line 14 in file 35-Ascii
+   Uses
+      At line 11 in file 35-Ascii
+Comment: GREAT used once
+MAIN 00000000
+
+Symbol: MAIN
+   Definitions
+      At line 6 in file 35-Ascii
+   Uses
+      None
+Comment: MAIN unused
+NEXT 00000020
+
+Symbol: NEXT
+   Definitions
+      At line 16 in file 35-Ascii
+   Uses
+      At line 13 in file 35-Ascii
+Comment: NEXT used once
+STOP 00000028
+
+Symbol: STOP
+   Definitions
+      At line 19 in file 35-Ascii
+   Uses
+      At line 19 in file 35-Ascii
+Comment: STOP used once
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATA 00000000
+
+Symbol: DATA
+   Definitions
+      At line 21 in file 35-Ascii
+   Uses
+      None
+Comment: DATA unused
+VALUE1 00000000
+
+Symbol: VALUE1
+   Definitions
+      At line 22 in file 35-Ascii
+   Uses
+      At line 7 in file 35-Ascii
+Comment: VALUE1 used once
+2 symbols
+342 symbols in table

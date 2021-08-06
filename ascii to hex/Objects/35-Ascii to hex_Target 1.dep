@@ -1,0 +1,3 @@
+Dependencies for Project '35-Ascii to hex', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
+F (.\35-Ascii to hex.s)(0x5E809FA3)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 529"--list ".\listings\35-ascii to hex.lst" --xref -o ".\objects\35-ascii to hex.o" --depend ".\objects\35-ascii to hex.d")
