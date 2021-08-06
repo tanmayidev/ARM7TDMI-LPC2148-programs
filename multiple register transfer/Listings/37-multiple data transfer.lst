@@ -1,0 +1,48 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Program for multiple register transfer
+    2 00000000         
+    3 00000000                 AREA             MULREGTRANS, CODE, READONLY
+    4 00000000         ENTRY
+    5 00000000 E3A00101        MOV              R0, #0x40000000 ;memory pointer
+                                                            
+    6 00000004 E8B00006        LDMIA            R0!, {R1-R2} ;get data to R1, R
+                                                            2 simultaneously
+    7 00000008 E3A00171        MOV              R0, #0x4000001C ;memory pointer
+                                                             for result
+    8 0000000C E8A00006        STMIA            R0!, {R1-R2} ;R1, R2 to memory
+    9 00000010         
+   10 00000010                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=".\
+objects\37-multiple data transfer.d" -o".\objects\37-multiple data transfer.o" 
+-IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\P
+hilips --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 529" --l
+ist=.\listings\37-multiple data transfer.lst "37-Multiple data transfer.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 4 in file 37-Multiple
+   Uses
+      None
+Comment: ENTRY unused
+MULREGTRANS 00000000
+
+Symbol: MULREGTRANS
+   Definitions
+      At line 3 in file 37-Multiple
+   Uses
+      None
+Comment: MULREGTRANS unused
+2 symbols
+334 symbols in table
