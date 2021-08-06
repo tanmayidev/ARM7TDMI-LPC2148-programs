@@ -1,0 +1,53 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Rotate_Right_ROR
+    2 00000000         ;Program to Rotate Right
+    3 00000000         
+    4 00000000                 AREA             ROTATE, CODE, READONLY
+    5 00000000         ENTRY
+    6 00000000 E3A00003        MOV              R0, #0X00000003 ;0000 0000 0000
+                                                             0000 0000 0000 000
+                                                            0 0011  = 0x0000000
+                                                            3
+    7 00000004 E1A01160        ROR              R1, R0, #0X02 ;0000 0000 0000 0
+                                                            000 0000 0000 0010 
+                                                            0000  = 0x00000020
+    8 00000008         ;0000 0000 0000 0000 0000 0000 0001 0000  = 0x00000010
+    9 00000008         ;0000 0000 0000 0000 0000 0000 0000 1000  = 0x00000008
+   10 00000008 E1A02001        MOV              R2, R1      ; R1 = 08 and R2 = 
+                                                            08
+   11 0000000C EF000011        SWI              0X11
+   12 00000010         
+   13 00000010                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\11.d -o.\objects\11.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\I
+nclude -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__
+UVISION_VERSION SETA 529" --list=.\listings\11.lst 11.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 5 in file 11.s
+   Uses
+      None
+Comment: ENTRY unused
+ROTATE 00000000
+
+Symbol: ROTATE
+   Definitions
+      At line 4 in file 11.s
+   Uses
+      None
+Comment: ROTATE unused
+2 symbols
+334 symbols in table
